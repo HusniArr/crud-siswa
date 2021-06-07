@@ -1,0 +1,289 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+      <!-- plugin js -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </head>
+
+
+    <body>
+
+      <div class="container">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">CRUD - Management Students.</a>
+        </div>
+      </nav>
+      <a href="#mSiswa" class="waves-effect waves-light btn btn-tmb modal-trigger" id="tmbSiswa"><i class="material-icons left">add</i>Tambah siswa</a>
+      <table id="tableSiswa">
+        <thead>
+          <tr>
+              <th>NIS</th>
+              <th>Nama Siswa</th>
+              <th>Kelas</th>
+              <th>Jurusan</th>
+              <th>#</th>
+          </tr>
+        </thead>
+
+        <tbody id="displaySiswa">
+
+        </tbody>
+      </table>
+
+      <!-- Modal tambah siswa -->
+      <div id="mSiswa" class="modal">
+        <form id="form">
+        <div class="modal-content">
+          <h4 class="title-modal">Tambah siswa baru</h4>
+             <div class="row">
+              <div class="input-field col s6">
+                <input id="nis" name="nis" type="number" >
+                <label for="nis">NIS</label>
+              </div>
+                <div class="input-field col s6">
+                <input id="nm_siswa" name="nm_siswa" type="text" >
+                <label for="nm_siswa">Nama Siswa</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="kelas" name="kelas" type="text">
+                <label for="kelas">Kelas</label>
+              </div>
+                <div class="input-field col s6">
+                <input id="jurusan" name="jurusan" type="text">
+                <label for="jurusan">Jurusan</label>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        
+          <button type="submit" class="btn waves-effect green accent-3" id="simpan"><i class="material-icons left">send</i>Simpan</button>
+          <a href="#!" class="modal-close waves-effect red darken btn"><i class="material-icons left">highlight_off</i>Batal</a>
+        </div>
+        </form>
+      </div>
+
+
+    <!-- modal update siswa -->
+          <div id="editModal" class="modal">
+        <form id="formEdit">
+        <div class="modal-content">
+          <h4 class="title-modal">Edit Siswa</h4>
+            <input type="hidden" id="edit_nis" name="edit_nis">
+            
+            <div class="row">
+              <div class="input-field col s4">
+                <input id="edit_nm_siswa" name="edit_nm_siswa" type="text" >
+                <label >Nama Siswa</label>
+              </div>
+              <div class="input-field col s4">
+                <input id="edit_kelas" name="edit_kelas" type="text">
+                <label >Kelas</label>
+              </div>
+                <div class="input-field col s4">
+                <input id="edit_jurusan" name="edit_jurusan" type="text">
+                <label>Jurusan</label>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        
+          <button type="submit" class="btn waves-effect green accent-3" id="simpan"><i class="material-icons left">send</i>Simpan</button>
+          <a href="#!" class="modal-close waves-effect red darken btn"><i class="material-icons left">highlight_off</i>Batal</a>
+        </div>
+        </form>
+      </div>
+
+    <!-- modal hapus siswa -->
+          <div id="delModal" class="modal">
+        <form id="formHapus">
+        <div class="modal-content">
+          <h4 class="title-modal" style="text-align:center;">Yakin akan dihapus?</h4>
+          <input type="hidden" id="id_siswa" name="id_siswa">
+        </div>
+        <div class="modal-footer">
+        
+          <button type="submit" class="btn waves-effect green accent-3" id="simpan"><i class="material-icons left">send</i>Simpan</button>
+          <a href="#!" class="modal-close waves-effect red darken btn"><i class="material-icons left">highlight_off</i>Batal</a>
+        </div>
+        </form>
+      </div>
+
+      <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+        
+   
+
+      </div>
+   
+   
+      <script type="text/javascript">
+              
+        document.addEventListener('DOMContentLoaded',()=>{
+          const box = document.querySelectorAll('.modal');
+          M.Modal.init(box,{})
+        })
+        const display = $('#displaySiswa');
+        $(document).ready(()=>{
+          getSiswa();
+          $('#tmbSiswa').click((e)=>{
+            e.preventDefault();
+            $('#nis').val('')
+            $('#nm_siswa').val('')
+            $('#kelas').val('')
+            $('#jurusan').val('')
+            
+          });
+
+       
+      
+    })
+  
+      
+          const getSiswa = ()=>{
+              fetch('/getSiswa',{method : "get"}).then((response)=>{
+                  return response.json();
+              }).then((data)=>{
+                  console.log(data);
+                  displaySiswa(data);
+              });
+          }
+          const displaySiswa = (data)=>{
+            data.forEach((result)=>{
+            
+              var html = `<tr>
+                            <td>${result.nis}</td>
+                            <td>${result.nm_siswa}</td>
+                            <td>${result.kelas}</td>
+                            <td>${result.jurusan}</td>
+                            <td>
+                              <a class="btn waves-effect blue darken edit modal-trigger" id="edit" onClick="editSiswa(this)" data-nis="${result.nis}" href="#editModal" data-nama="${result.nm_siswa}" data-kelas="${result.kelas}" data-jurusan="${result.jurusan}"><i class="material-icons left">edit</i>Edit</a>&nbsp;<a href="/hapus/${result.nis}" class="btn waves-effect red darken"  data-nis="${result.nis}"><i class="material-icons left">remove</i>Hapus</a>
+                            </td>
+                        </tr>
+              `;
+
+              display.append(html);
+            })
+          }
+          $('#form').submit((e)=>{
+            e.preventDefault();
+            var nis = $('#nis').val();
+            var nm_siswa = $('#nm_siswa').val();
+            var kelas = $('#kelas').val();
+            var jurusan = $('#jurusan').val();
+              fetch('/simpan',{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({nis:nis,nm_siswa:nm_siswa,kelas:kelas,jurusan:jurusan})
+              }).then((response)=>{
+                
+              response.json();
+
+              }).then((data)=>{
+                    alert('Berhasil disimpan');
+                  setTimeout(()=>{
+                    window.location.reload()
+                  },3000)
+                });
+
+
+            
+          })
+
+          $('#formEdit').submit((e)=>{
+            e.preventDefault();
+            var nis = $('#edit_nis').val();
+            var nm_siswa = $('#edit_nm_siswa').val();
+            var kelas = $('#edit_kelas').val();
+            var jurusan = $('#edit_jurusan').val();
+              fetch('/update/'+nis,{
+                method:'PUT',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({nm_siswa:nm_siswa,kelas:kelas,jurusan:jurusan})
+              }).then((response)=>{
+                
+              response.json();
+
+              }).then((data)=>{
+                    alert('Berhasil disimpan');
+                  setTimeout(()=>{
+                    window.location.reload()
+                  },3000)
+                });
+          })
+     
+ 
+      function editSiswa(el){
+            const nis = $(el).attr('data-nis');
+            const nama = $(el).attr('data-nama');
+            const kelas = $(el).attr('data-kelas');
+            const jurusan = $(el).attr('data-jurusan');
+
+            $('#edit_nis').val(nis);
+            $('#edit_nm_siswa').val(nama);
+            $('#edit_kelas').val(kelas);
+            $('#edit_jurusan').val(jurusan)
+      } 
+
+      function hapus(el){
+           const nis = $(el).attr('data-nis');
+          $('#id_siswa').val(nis)
+      
+      }
+      $('#formHapus').submit((e)=>{
+        e.preventDefault();
+        var nis = $('#id_siswa').val(); 
+         fetch('/delSiwa/'+nis,{
+                method:'GET',
+              }).then((response)=>{
+                
+              response.json();
+
+              }).then((data)=>{
+                     alert(data.msg);
+                  setTimeout(()=>{
+                    window.location.reload();
+                  },3000)
+                
+              })
+      })      
+      </script>
+    </body>
+  </html>

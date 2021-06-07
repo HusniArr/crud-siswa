@@ -1,0 +1,19 @@
+{
+  "name": "crud-siswa",
+  "version": "1.0.0",
+  "description": "aplikasi crud manajemen siswa",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "husni",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "materialize": "^1.0.0",
+    "materialize-css": "^1.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  }
+}
